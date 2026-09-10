@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Watt - Solar Hub | سوق الطاقة الشمسية الأول في العراق</title>
+  <meta name="description" content="Watt: أول منصة متكاملة لحساب وتصميم وشراء أنظمة الطاقة الشمسية في العراق. فرصة استثمارية واعدة في سوق الطاقة المتجددة.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+  <meta property="og:title" content="Watt - أول سوق إلكتروني للطاقة الشمسية في العراق">
+  <meta property="og:description" content="منصة متكاملة لحساب وتصميم وشراء أنظمة الطاقة الشمسية. فرصة استثمارية رائدة.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/logo.png">
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #F59E0B;
+      --primary-dark: #D97706;
+      --primary-light: #FDE68A;
+      --secondary: #1E3A5F;
+      --secondary-light: #2D5A87;
+      --accent: #10B981;
+      --accent-dark: #059669;
+      --dark: #0F172A;
+      --dark-2: #1E293B;
+      --gray-50: #F8FAFC;
+      --gray-100: #F1F5F9;
+      --gray-200: #E2E8F0;
+      --gray-300: #CBD5E1;
+      --gray-400: #94A3B8;
+      --gray-500: #64748B;
+      --gray-600: #475569;
+      --gray-700: #334155;
+      --text: #1E293B;
+      --text-light: #64748B;
+      --white: #FFFFFF;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+      --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+      --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+      --radius: 16px;
+      --radius-sm: 8px;
+      --radius-lg: 24px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Cairo', 'Tajawal', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ========== NAVBAR ========== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 16px 0;
+      transition: var(--transition);
+      background: transparent;
+    }
+
+    .navbar.scrolled {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      padding: 10px 0;
+      box-shadow: var(--shadow);
+    }
+
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .navbar .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--white);
+      font-weight: 800;
+      font-size: 24px;
+      transition: var(--transition);
+    }
+
+    .navbar.scrolled .logo {
+      color: var(--secondary);
+    }
+
+    .navbar .logo img {
+      height: 40px;
+      width: auto;
+      filter: brightness(1);
+      transition: var(--transition);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: rgba(255,255,255,0.85);
+      font-weight: 500;
+      font-size: 15px;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .navbar.scrolled .nav-links a {
+      color: var(--gray-600);
+    }
+
+    .nav-links a:hover,
+    .navbar.scrolled .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      background: var(--primary);
+      color: var(--dark) !important;
+      padding: 8px 24px;
+      border-radius: 50px;
+      font-weight: 700 !important;
+      transition: var(--transition);
+    }
+
+    .nav-cta:hover {
+      background: var(--primary-dark) !important;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(245,158,11,0.4);
+    }
+
+    .nav-cta::after {
+      display: none !important;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .menu-toggle span {
+      width: 28px;
+      height: 2.5px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    .navbar.scrolled .menu-toggle span {
+      background: var(--dark);
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      background: linear-gradient(135deg, var(--dark) 0%, var(--secondary) 50%, var(--dark-2) 100%);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(245,158,11,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(16,185,129,0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 10s ease-in-out infinite reverse;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(30px, -30px); }
+    }
+
+    .hero-particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 50%;
+      opacity: 0;
+      animation: particle 6s infinite;
+    }
+
+    @keyframes particle {
+      0% { opacity: 0; transform: translateY(100vh) scale(0); }
+      20% { opacity: 0.6; }
+      80% { opacity: 0.6; }
+      100% { opacity: 0; transform: translateY(-10vh) scale(1); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 120px 0 60px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245,158,11,0.15);
+      border: 1px solid rgba(245,158,11,0.3);
+      color: var(--primary);
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 72px);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 20px;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--primary), #FBBF24);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: clamp(16px, 2vw, 20px);
+      color: rgba(255,255,255,0.75);
+      max-width: 700px;
+      margin: 0 auto 36px;
+      line-height: 1.9;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeInUp 1.2s ease-out;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 36px;
+      border-radius: 50px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--dark);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(245,158,11,0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      margin-top: 60px;
+      animation: fadeInUp 1.4s ease-out;
+    }
+
+    .hero-stat {
+      text-align: center;
+    }
+
+    .hero-stat .number {
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--primary);
+      display: block;
+    }
+
+    .hero-stat .label {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      font-weight: 500;
+    }
+
+    .hero-stat-divider {
+      width: 1px;
+      background: rgba(255,255,255,0.15);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ========== SECTION SHARED ========== */
+    section {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title .label {
+      display: inline-block;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+
+    .section-title p {
+      font-size: 18px;
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ========== PROBLEM ========== */
+    .problem {
+      background: var(--gray-50);
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .problem-content h2 {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .problem-content h2 span {
+      color: var(--primary-dark);
+    }
+
+    .problem-content p {
+      color: var(--text-light);
+      font-size: 16px;
+      margin-bottom: 24px;
+    }
+
+    .problem-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .problem-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .problem-item .icon {
+      width: 28px;
+      height: 28px;
+      background: #FEE2E2;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    .problem-item span {
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .problem-visual {
+      position: relative;
+    }
+
+    .problem-visual img {
+      width: 100%;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .problem-stat-card {
+      position: absolute;
+      bottom: -20px;
+      left: -20px;
+      background: var(--white);
+      padding: 20px 24px;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-lg);
+      text-align: center;
+      min-width: 160px;
+    }
+
+    .problem-stat-card .big {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--primary-dark);
+    }
+
+    .problem-stat-card .small {
+      font-size: 12px;
+      color: var(--text-light);
+      font-weight: 500;
+    }
+
+    /* ========== SOLUTION ========== */
+    .solution {
+      background: var(--white);
+    }
+
+    .solution-showcase {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .solution-card {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      padding: 32px 24px;
+      border-radius: var(--radius);
+      transition: var(--transition);
+      text-align: center;
+    }
+
+    .solution-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary-light);
+    }
+
+    .solution-card .icon-wrap {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, var(--primary-light), #FEF3C7);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin: 0 auto 16px;
+    }
+
+    .solution-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .solution-card p {
+      color: var(--text-light);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* ========== MARKET ========== */
+    .market {
+      background: linear-gradient(135deg, var(--dark) 0%, var(--secondary) 100%);
+      color: var(--white);
+    }
+
+    .market .section-title h2 {
+      color: var(--white);
+    }
+
+    .market .section-title p {
+      color: rgba(255,255,255,0.7);
+    }
+
+    .market .section-title .label {
+      background: rgba(245,158,11,0.2);
+      color: var(--primary);
+    }
+
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .market-card {
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 32px 24px;
+      border-radius: var(--radius);
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .market-card:hover {
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-4px);
+    }
+
+    .market-card .icon {
+      font-size: 40px;
+      margin-bottom: 16px;
+    }
+
+    .market-card .number {
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--primary);
+      display: block;
+    }
+
+    .market-card .desc {
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      margin-top: 8px;
+      line-height: 1.7;
+    }
+
+    /* ========== FEATURES ========== */
+    .features {
+      background: var(--gray-50);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      padding: 32px 24px;
+      border-radius: var(--radius);
+      transition: var(--transition);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .feature-card .icon-wrap {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--primary-light), #FEF3C7);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+
+    .feature-card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .feature-card p {
+      color: var(--text-light);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* ========== REVENUE ========== */
+    .revenue {
+      background: var(--white);
+    }
+
+    .revenue-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .revenue-card {
+      padding: 32px 24px;
+      border-radius: var(--radius);
+      text-align: center;
+      border: 1px solid var(--gray-200);
+      transition: var(--transition);
+    }
+
+    .revenue-card:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .revenue-card .icon {
+      font-size: 36px;
+      margin-bottom: 16px;
+    }
+
+    .revenue-card h3 {
+      font-weight: 700;
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .revenue-card p {
+      color: var(--text-light);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .revenue-card .tag {
+      display: inline-block;
+      margin-top: 12px;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      padding: 4px 12px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    /* ========== WHY INVEST ========== */
+    .why-invest {
+      background: var(--gray-50);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .why-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      padding: 28px 24px;
+      border-radius: var(--radius);
+      display: flex;
+      gap: 16px;
+      transition: var(--transition);
+    }
+
+    .why-card:hover {
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary-light);
+    }
+
+    .why-card .num {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--primary), #FBBF24);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 18px;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+
+    .why-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .why-card p {
+      color: var(--text-light);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* ========== TEAM ========== */
+    .team {
+      background: var(--white);
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 32px;
+      text-align: center;
+    }
+
+    .team-card .avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary-light), #FEF3C7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      margin: 0 auto 16px;
+      border: 3px solid var(--primary-light);
+    }
+
+    .team-card h4 {
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .team-card .role {
+      color: var(--primary-dark);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .team-card p {
+      color: var(--text-light);
+      font-size: 13px;
+      margin-top: 4px;
+    }
+
+    /* ========== CTA ========== */
+    .cta {
+      background: linear-gradient(135deg, var(--dark) 0%, var(--secondary) 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .cta p {
+      color: rgba(255,255,255,0.7);
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto 36px;
+    }
+
+    .cta .btn-primary {
+      font-size: 18px;
+      padding: 18px 48px;
+    }
+
+    .cta .contact-info {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .cta .contact-info a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      transition: var(--transition);
+    }
+
+    .cta .contact-info a:hover {
+      color: var(--primary);
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      background: var(--dark);
+      padding: 32px 0;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    footer p {
+      color: rgba(255,255,255,0.4);
+      font-size: 14px;
+    }
+
+    footer .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      list-style: none;
+      margin-bottom: 12px;
+    }
+
+    footer .footer-links a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 13px;
+      transition: var(--transition);
+    }
+
+    footer .footer-links a:hover {
+      color: var(--primary);
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 1024px) {
+      .features-grid,
+      .market-grid,
+      .revenue-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 60px 0;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(255,255,255,0.98);
+        backdrop-filter: blur(20px);
+        padding: 24px;
+        flex-direction: column;
+        gap: 16px;
+        box-shadow: var(--shadow-xl);
+        border-radius: 0 0 var(--radius) var(--radius);
+        text-align: center;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        color: var(--gray-600) !important;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .problem-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .hero-stats {
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+
+      .hero-stat-divider {
+        display: none;
+      }
+
+      .features-grid,
+      .market-grid,
+      .revenue-grid,
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-stats {
+        flex-direction: column;
+        gap: 16px;
+        align-items: center;
+      }
+
+      .hero-stat-divider {
+        width: 40px;
+        height: 1px;
+      }
+
+      .problem-stat-card {
+        position: static;
+        margin-top: 16px;
+      }
+    }
+
+    /* ========== SCROLL ANIMATIONS ========== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ========== NAVBAR SCROLL LOGIC ========== */
+    .navbar.scrolled .nav-cta {
+      color: var(--dark) !important;
+    }
+
+    /* ========== WHATSAPP FLOAT ========== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      z-index: 999;
+      width: 56px;
+      height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(37,211,102,0.4);
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 24px rgba(37,211,102,0.5);
+    }
+
+    .whatsapp-float svg {
+      width: 28px;
+      height: 28px;
+      fill: white;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#" class="logo">
+        <img src="assets/images/logo.png" alt="Watt Logo">
+        <span>Watt</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#problem">المشكلة</a></li>
+        <li><a href="#solution">الحل</a></li>
+        <li><a href="#market">السوق</a></li>
+        <li><a href="#features">الميزات</a></li>
+        <li><a href="#why-invest">لماذا نحن</a></li>
+        <li><a href="#cta" class="nav-cta">تواصل معنا</a></li>
+      </ul>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="القائمة">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="hero-particles">
+      <div class="particle" style="left:10%;animation-delay:0s;"></div>
+      <div class="particle" style="left:25%;animation-delay:1s;"></div>
+      <div class="particle" style="left:40%;animation-delay:2s;"></div>
+      <div class="particle" style="left:55%;animation-delay:0.5s;"></div>
+      <div class="particle" style="left:70%;animation-delay:1.5s;"></div>
+      <div class="particle" style="left:85%;animation-delay:2.5s;"></div>
+      <div class="particle" style="left:50%;animation-delay:3s;"></div>
+      <div class="particle" style="left:20%;animation-delay:3.5s;"></div>
+    </div>
+
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span>⚡</span>
+          أول سوق إلكتروني للطاقة الشمسية في العراق
+        </div>
+
+        <h1>
+          حوّل ضوء الشمس إلى<br>
+          <span>استثمار مربح</span>
+        </h1>
+
+        <p>
+          منصة متكاملة تجمع بين حساب الاحتياجات الشمسية، تصميم الأنظمة، 
+          والتسوق الإلكتروني لمكونات الطاقة الشمسية. نربط المستهلكين والشركات 
+          في سوق واحد منظم وموثوق.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#cta" class="btn btn-primary">
+            ✦ استثمر معنا
+          </a>
+          <a href="#features" class="btn btn-outline">
+            اكتشف الميزات
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="number">+300</span>
+            <span class="label">مستخدم نشط</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <span class="number">+50</span>
+            <span class="label">شركة مسجلة</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <span class="number">+25</span>
+            <span class="label">مدينة عراقية</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <span class="number">B2B+B2C</span>
+            <span class="label">نموذج عمل مزدوج</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROBLEM ===== -->
+  <section class="problem" id="problem">
+    <div class="container">
+      <div class="problem-grid">
+        <div class="problem-content reveal">
+          <h2>العراق يعاني <span>أزمة كهرباء</span></h2>
+          <p>
+            يعاني العراق من عجز مزمن في إنتاج الكهرباء يصل إلى آلاف الميغاواط، 
+            مع انقطاعات التيار لساعات طويلة يومياً. رغم امتلاك البلاد 
+            أحد أعلى معدلات سطوع الشمس في العالم، إلا أن الاعتماد على 
+            الطاقة الشمسية لا يزال محدوداً.
+          </p>
+
+          <div class="problem-list">
+            <div class="problem-item">
+              <div class="icon">❌</div>
+              <div>
+                <span>انقطاع الكهرباء لـ 8-12 ساعة يومياً</span>
+              </div>
+            </div>
+            <div class="problem-item">
+              <div class="icon">❌</div>
+              <div>
+                <span>تكاليف باهظة للمولدات الأهلية والوقود</span>
+              </div>
+            </div>
+            <div class="problem-item">
+              <div class="icon">❌</div>
+              <div>
+                <span>سوق غير منظم ومبعثر لموزعي الطاقة الشمسية</span>
+              </div>
+            </div>
+            <div class="problem-item">
+              <div class="icon">❌</div>
+              <div>
+                <span>صعوبة مقارنة الأسعار والمواصفات بين الموردين</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="problem-visual reveal">
+          <img src="assets/images/solar-energy.png" alt="Solar Energy">
+          <div class="problem-stat-card">
+            <div class="big">330+</div>
+            <div class="small">يوم مشمس سنوياً في العراق</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SOLUTION ===== -->
+  <section class="solution" id="solution">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="label">✦ الحل</span>
+        <h2>Watt يجمع كل شيء في منصة واحدة</h2>
+        <p>من حساب الاحتياج إلى التركيب والصيانة، كل ما تحتاجه في مكان واحد</p>
+      </div>
+
+      <div class="solution-showcase">
+        <div class="solution-card reveal">
+          <div class="icon-wrap">🔢</div>
+          <h3>حاسبة شمسية ذكية</h3>
+          <p>حدد أجهزتك واستهلاكك، والنظام يحسب لك عدد الألواح والبطاريات والإنفرتر المطلوب بدقة.</p>
+        </div>
+        <div class="solution-card reveal">
+          <div class="icon-wrap">🏪</div>
+          <h3>متجر إلكتروني B2B + B2C</h3>
+          <p>منصة تسوق متكاملة للمستهلكين والشركات تشمل الألواح، البطاريات، الإنفرترات، وملحقاتها.</p>
+        </div>
+        <div class="solution-card reveal">
+          <div class="icon-wrap">📋</div>
+          <h3>نظام عروض أسعار</h3>
+          <p>اطلب عروض أسعار من عدة شركات، قارنها، واختر الأنسب لمشروعك.</p>
+        </div>
+        <div class="solution-card reveal">
+          <div class="icon-wrap">📊</div>
+          <h3>إدارة المخزون والمبيعات</h3>
+          <p>للشركات: لوحة تحكم كاملة تدير المخزون، الطلبات، العملاء، والتقارير المالية.</p>
+        </div>
+        <div class="solution-card reveal">
+          <div class="icon-wrap">💳</div>
+          <h3>محاسبة متكاملة</h3>
+          <p>دفتر الأستاذ، الفواتير، القبض والدفع، تقارير الأرباح والخسائر، ودفاتر اليومية.</p>
+        </div>
+        <div class="solution-card reveal">
+          <div class="icon-wrap">✏️</div>
+          <h3>مصمم أنظمة شمسية</h3>
+          <p>أداة تصميم احترافية للأنظمة الشمسية تشمل تخطيط الأسقف والأرضي مع فاتورة المواد.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MARKET ===== -->
+  <section class="market" id="market">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="label">📈 فرصة السوق</span>
+        <h2>لماذا العراق؟ ولماذا الآن؟</h2>
+        <p>العراق يمثل واحدة من أكبر الفرص الاستثمارية في مجال الطاقة الشمسية في الشرق الأوسط</p>
+      </div>
+
+      <div class="market-grid">
+        <div class="market-card reveal">
+          <div class="icon">☀️</div>
+          <span class="number">3,000+</span>
+          <div class="desc">ساعة شمس سنوياً — من أعلى المعدلات عالمياً</div>
+        </div>
+        <div class="market-card reveal">
+          <div class="icon">🏠</div>
+          <span class="number">40M+</span>
+          <div class="desc">عدد السكان مع طلب متزايد على حلول الطاقة البديلة</div>
+        </div>
+        <div class="market-card reveal">
+          <div class="icon">⚡</div>
+          <span class="number">~55%</span>
+          <div class="desc">فجوة بين إنتاج الكهرباء وحاجة السوق الفعلية</div>
+        </div>
+        <div class="market-card reveal">
+          <div class="icon">📜</div>
+          <span class="number">2024-2030</span>
+          <div class="desc">خطط حكومية لدعم الطاقة المتجددة ورفع نسبة مساهمتها</div>
+        </div>
+        <div class="market-card reveal">
+          <div class="icon">💰</div>
+          <span class="number">$500M+</span>
+          <div class="desc">حجم سوق الطاقة الشمسية المتوقع في العراق بحلول 2027</div>
+        </div>
+        <div class="market-card reveal">
+          <div class="icon">📱</div>
+          <span class="number">85%</span>
+          <div class="desc">نسبة انتشار الإنترنت والهواتف الذكية — سوق رقمي خصب</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURES ===== -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="label">🚀 الميزات</span>
+        <h2>منصة متكاملة بحل واحد</h2>
+        <p>Watt ليس مجرد تطبيق عادي — إنه نظام متكامل يخدم المستهلك والشركة على حد سواء</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card reveal">
+          <div class="icon-wrap">🧮</div>
+          <h3>الحاسبة السريعة</h3>
+          <p>احسب احتياجك الشمسي في دقائق: الأجهزة، عدد ساعات التشغيل، التكلفة التقديرية.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="icon-wrap">🛒</div>
+          <h3>متجر B2B + B2C</h3>
+          <p>سوق إلكتروني للمستهلكين والشركات مع فلاتر متقدمة للبحث والمقارنة.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="icon-wrap">🤝</div>
+          <h3>طلبات العروض</h3>
+          <p>أنشئ طلب عرض وقارن بين عروض الشركات المختلفة واختر الأفضل.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="icon-wrap">📦</div>
+          <h3>إدارة الطلبات</h3>
+          <p>تتبع حالة طلباتك لحظة بلحظة، من تقديم الطلب إلى التوصيل والتركيب.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="icon-wrap">👥</div>
+          <h3>نظام إدارة الفريق</h3>
+          <p>للشركات: إضافة أعضاء الفريق، صلاحيات مخصصة، وإدارة المهام.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="icon-wrap">💬</div>
+          <h3>مجتمع تفاعلي</h3>
+          <p>مجتمع للمناقشات والاستشارات حول الطاقة الشمسية، تبادل الخبرات والتجارب.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="icon-wrap">📐</div>
+          <h3>مصمم الأنظمة</h3>
+          <p>صمم نظامك الشمسي بتقنية ثلاثية الأبعاد مع حساب دقيق لفاتورة المواد.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="icon-wrap">📊</div>
+          <h3>تقارير وتحليلات</h3>
+          <p>تقارير مالية وإدارية متقدمة للشركات: مبيعات، أرباح، مخزون، وأداء الفريق.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="icon-wrap">🔔</div>
+          <h3>إشعارات ذكية</h3>
+          <p>إشعارات لحظية للطلبات، العروض، التحديثات، والعروض الترويجية.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== REVENUE MODEL ===== -->
+  <section class="revenue" id="revenue">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="label">💰 نموذج الربح</span>
+        <h2>كيف نحقق الإيرادات</h2>
+        <p>ثلاث قنوات رئيسية للإيرادات تضمن استدامة ونمو المنصة</p>
+      </div>
+
+      <div class="revenue-grid">
+        <div class="revenue-card reveal">
+          <div class="icon">📋</div>
+          <h3>عمولة المبيعات</h3>
+          <p>نسبة مئوية من كل عملية بيع تتم عبر المنصة، لكل من المبيعات بين الشركات (B2B) ومبيعات التجزئة (B2C).</p>
+          <span class="tag">تدفق أساسي</span>
+        </div>
+        <div class="revenue-card reveal">
+          <div class="icon">👑</div>
+          <h3>اشتراكات الشركات</h3>
+          <p>باقات شهرية للشركات: أساسية، محترفة، ومؤسسية — كل منها يوفر أدوات إضافية وصلاحيات متقدمة.</p>
+          <span class="tag">إيراد متكرر</span>
+        </div>
+        <div class="revenue-card reveal">
+          <div class="icon">📢</div>
+          <h3>إعلانات وترويج</h3>
+          <p>إعلانات مدفوعة للشركات داخل المنصة، بطاقات عرض مميزة، وإعلانات في أقسام المجتمع والمتجر.</p>
+          <span class="tag">تدفق إضافي</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY INVEST ===== -->
+  <section class="why-invest" id="why-invest">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="label">⭐ لماذا نستثمر</span>
+        <h2>لماذا Watt هي الاستثمار الصحيح؟</h2>
+        <p>فرصتنا ليست مجرد تطبيق آخر — إنها منصة تعيد تشكيل سوق بأكمله</p>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <div class="num">1</div>
+          <div>
+            <h3>سوق غير مخترق</h3>
+            <p>لا يوجد منافس مباشر يقدم منصة متكاملة تجمع بين الحاسبة، المتجر، إدارة الشركات، والتصميم في سوق واحد. السوق ما زال تقليدياً ومجزأً.</p>
+          </div>
+        </div>
+        <div class="why-card reveal">
+          <div class="num">2</div>
+          <div>
+            <h3>نموذج عمل مرن وقابل للتوسع</h3>
+            <p>منصة مزدوجة تخدم المستهلك العادي والشركات في آن واحد، مع إمكانية التوسع إلى أسواق إقليمية (السعودية، الأردن، مصر، الإمارات).</p>
+          </div>
+        </div>
+        <div class="why-card reveal">
+          <div class="num">3</div>
+          <div>
+            <h3>بنية تقنية متطورة</h3>
+            <p>تطبيق مبني بـ Flutter للواجهات مع backend قوي بلغة Go، مما يضمن أداء عالياً وتوسعاً أفقياً سلساً. Clean Architecture + Riverpod لإدارة الحالة.</p>
+          </div>
+        </div>
+        <div class="why-card reveal">
+          <div class="num">4</div>
+          <div>
+            <h3>أكثر من مجرد متجر</h3>
+            <p>نظام متكامل يشمل الحسابات الشمسية، إدارة المحتوى، CRM، المحاسبة، إدارة الفريق، والمجتمع — كلها في منصة واحدة.</p>
+          </div>
+        </div>
+        <div class="why-card reveal">
+          <div class="num">5</div>
+          <div>
+            <h3>فريق خبير ومتفاني</h3>
+            <p>فريق يمتلك خبرة في تطوير التطبيقات، الطاقة الشمسية، والسوق العراقي. نفهم التحديات ونعرف الحلول.</p>
+          </div>
+        </div>
+        <div class="why-card reveal">
+          <div class="num">6</div>
+          <div>
+            <h3>جاهز للإطلاق</h3>
+            <p>التطبيق مكتمل البناء وجاهز للنشر. البنية التحتية جاهزة، ونحتاج إلى شريك استراتيجي لتسريع النمو والتوسع.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TEAM ===== -->
+  <section class="team" id="team">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="label">👥 فريق العمل</span>
+        <h2>فريق يملك الرؤية والخبرة</h2>
+        <p>نخبة من المطورين والخبراء في مجال الطاقة والتكنولوجيا</p>
+      </div>
+
+      <div class="team-grid">
+        <div class="team-card reveal">
+          <div class="avatar">👨‍💻</div>
+          <h4>عبد الرسول</h4>
+          <div class="role">المؤسس والمطور الرئيسي</div>
+          <p>خبرة في تطوير التطبيقات المتكاملة، Flutter & Go، وبناء الأنظمة المعقدة</p>
+        </div>
+        <div class="team-card reveal">
+          <div class="avatar">👨‍🔧</div>
+          <h4>خبير طاقة شمسية</h4>
+          <div class="role">مستشار فني</div>
+          <p>خبرة في تصميم أنظمة الطاقة الشمسية وحسابات الأحمال ومعايير الجودة</p>
+        </div>
+        <div class="team-card reveal">
+          <div class="avatar">👨‍🎨</div>
+          <h4>مصمم UX/UI</h4>
+          <div class="role">مصمم تجربة المستخدم</div>
+          <p>تصميم واجهات سهلة وجذابة تراعي احتياجات المستخدم العربي والعراقي</p>
+        </div>
+        <div class="team-card reveal">
+          <div class="avatar">👨‍💼</div>
+          <h4>خبير تسويق</h4>
+          <div class="role">استراتيجي نمو</div>
+          <p>خبرة في بناء العلامات التجارية والتوسع في الأسواق الناشئة</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta" id="cta">
+    <div class="container">
+      <div class="cta-content reveal">
+        <h2>هل أنت مستعد لتكون جزءاً من ثورة الطاقة الشمسية في العراق؟</h2>
+        <p>
+          نبحث عن شريك استراتيجي ومستثمر يؤمن برؤيتنا ويساعدنا في توسيع المنصة 
+          والوصول إلى أكبر شريحة ممكنة من المستخدمين والشركات في العراق والشرق الأوسط.
+        </p>
+        <a href="mailto:invest@watt.app" class="btn btn-primary">
+          ✦ تواصل معنا للاستثمار
+        </a>
+
+        <div class="contact-info">
+          <a href="mailto:invest@watt.app">✉ invest@watt.app</a>
+          <a href="tel:+964XXXXXXXXX">📞 +964 XXX XXX XXXX</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHATSAPP FLOAT ===== -->
+  <a href="https://wa.me/964XXXXXXXXX" class="whatsapp-float" target="_blank" rel="noopener" aria-label="تواصل عبر واتساب">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container">
+      <ul class="footer-links">
+        <li><a href="#problem">المشكلة</a></li>
+        <li><a href="#solution">الحل</a></li>
+        <li><a href="#market">السوق</a></li>
+        <li><a href="#features">الميزات</a></li>
+        <li><a href="#why-invest">لماذا نحن</a></li>
+      </ul>
+      <p>&copy; 2026 Watt. جميع الحقوق محفوظة. صنع في العراق ❤️</p>
+    </div>
+  </footer>
+
+  <script>
+    // ===== NAVBAR SCROLL =====
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // ===== MOBILE MENU =====
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+      });
+    });
+
+    // ===== SCROLL REVEAL =====
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ===== COUNTER ANIMATION =====
+    function animateCounter(el, target) {
+      const text = el.textContent;
+      const isNumber = /^[\d.]+$/.test(target);
+      if (!isNumber) {
+        el.textContent = target;
+        return;
+      }
+      const num = parseFloat(target);
+      const duration = 2000;
+      const start = performance.now();
+      const isFloat = target.includes('.');
+
+      function update(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = eased * num;
+        el.textContent = isFloat ? current.toFixed(1) : Math.floor(current).toLocaleString('ar-IQ');
+        if (progress < 1) requestAnimationFrame(update);
+        else el.textContent = target;
+      }
+      requestAnimationFrame(update);
+    }
+
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = el.getAttribute('data-target') || el.textContent;
+          animateCounter(el, target);
+          counterObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.hero-stat .number').forEach(el => {
+      const text = el.textContent.trim();
+      el.setAttribute('data-target', text);
+      el.textContent = '0';
+      counterObserver.observe(el);
+    });
+
+    document.querySelectorAll('.market-card .number').forEach(el => {
+      const text = el.textContent.trim();
+      const cleanText = text.replace(/[+,$]/g, '');
+      el.setAttribute('data-target', cleanText);
+      el.textContent = '0';
+      counterObserver.observe(el);
+    });
+
+    // ===== SMOOTH SCROLL for anchor links =====
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
